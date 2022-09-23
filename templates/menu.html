@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='Styles/menu.css') }}">
+</head>
+<body>
+    <header>
+        <h1>BEM VINDO AO CONVERSOR DE MOEDAS!<br></h1>
+    </header>
+    <center><h2>Selecione a opção desejada:</h2></center>
+    <div>
+        <form method="POST" action="/conv">
+        <button class="botao1" type="submit" onsubmit="" formaction = "/conv">Para ir para o conversor de moedas,<br> clique aqui.</button>
+        <button class="botao2" type="submit" onsubmit="" formaction="/hist">Para ver o histórico de valores do Dollar,<br> clique aqui.</button>
+    </div>
+    </form>
+</body>
+</html>
