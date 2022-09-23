@@ -8,7 +8,7 @@ cmBp = Blueprint('cmBp',__name__)
 
 #declarar rota para blueprint
 
-@cmBp.route('/menu')
+@cmBp.route('/')
 def menu():
     return render_template('menu.html')
 
