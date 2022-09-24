@@ -19,7 +19,8 @@ header {
   }
 
 .botao1 {
-    font-size: 1.2em;
+    font-family: "Arial Black" Sans-serif ;
+    font-size: 1.8em;
     background:rgb(68, 108, 168);
     border: 0;
     color: #ffffff;
@@ -33,10 +34,11 @@ header {
     transform: translate(-50%, -50%);
     padding: 75px 140px;
     display: inline-block;
+    border-radius: 25px;
 }
 
 .botao2 {
-    font-size: 1.2em;
+    font-size: 1.8em;
     background:rgb(68, 108, 168);
     border: 0;
     color: #ffffff;
@@ -50,6 +52,7 @@ header {
     transform: translate(-50%, -50%);
     padding: 75px 140px;
     display: inline-block;
+    border-radius: 25px;
 }
 
 .botao1:hover {

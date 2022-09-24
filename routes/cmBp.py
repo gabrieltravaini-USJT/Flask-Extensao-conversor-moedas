@@ -50,7 +50,24 @@ def conv_list():
 
 @cmBp.route('/conv',methods = ['POST'])
 def conv():
-    return 'foi pra conv'
+    return render_template("conv.html")
+
+@cmBp.route('/conv/res',methods=['POST'])
+def res_conv():
+    op = request.form['tipo']
+    qtd = float(request.form['qtd'])
+    cotacao_dia = Moeda.query.order_by(desc(Moeda.data_base)).first()
+    
+    if op == "Vender Dolares":
+        valor = qtd*cotacao_dia.preco_venda
+        valor = str(('R${:.2f}'.format(valor)))
+        return render_template('res.html',op = 'vender essa quantidade de Dolares você receberá:',valor = valor)
+
+    else:
+        valor = qtd*cotacao_dia.preco_compra
+        valor = str(('R${:.2f}'.format(valor)))
+        return render_template('res.html',op = 'comprar essa quantidade de Dolares custará:',valor = valor)
+    
 
 
 @cmBp.route('/populate')#RODAR APENAS PARA INICIALIZAR O BANCO

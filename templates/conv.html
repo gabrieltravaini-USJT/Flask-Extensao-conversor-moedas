@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Conversão de moedas</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='Styles/conv.css') }}"> 
 </head>
+<header><h1>Conversão de Moedas</h1></header>
 <body>
-    
+    <h2 style="text-align: center;">Selecione a Operação de câmbio desejada:</h2>
+        <form method="POST" action="/conv/res">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Qual a operação desejada? </td>
+                                <td>
+                                    <input type="radio" name="tipo" id="tipo" value="Comprar Dolares" required> Comprar Dolares 
+                                    <br>
+                                    <input type="radio" name="tipo" id="tipo" value="Vender Dolares" required> Vender Dolares
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Quantos Dolares você quer comprar/vender? </td>
+                                <td><input type="text" name="qtd" id="qtd" required></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <br>
+                                    <button class="botao1" type="submit" onsubmit="" formaction = "/conv/res"> Calcular</button>
+                                    <br>
+                                    <br>
+                                </td>
+                            </tr>                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </form>
+    </body>
+</html>
 </body>
 </html>
