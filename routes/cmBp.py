@@ -1,3 +1,4 @@
+from queue import Empty
 from flask import Blueprint, render_template, request, redirect, url_for
 from..extensions import db
 from..models.conv import Moeda
@@ -28,7 +29,7 @@ def update():
 
     df_update = consultaCotacao(next_update,today)
 
-    if  df_update!=0:
+    if  len (df_update)>0:
         for index,row in df_update.iterrows():
             data = datetime.strptime(row.ExchangeDate[0:10], '%Y-%m-%d')
             dia = Moeda(preco_compra = row.BuyPrice, preco_venda = row.SellPrice, data_base = data)
@@ -43,7 +44,7 @@ def menu():
 
 
 
-@cmBp.route('/hist',methods = ['POST'])
+@cmBp.route('/hist',methods = ['POST','GET'])
 def conv_list():
     moeda_query= Moeda.query.order_by(desc(Moeda.data_base)).all()
     return render_template('lista.html', lista = moeda_query)
@@ -100,5 +101,5 @@ def consultaCotacao (dataIniCotacao,dataFimCotacao):
         return df_dolar
 
     else:
-        return 0
+        return pd.DataFrame()
     
